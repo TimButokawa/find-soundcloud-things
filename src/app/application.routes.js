@@ -8,12 +8,18 @@
     function routerConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
         .state('home', {
-            url: '/',
-            templateUrl: 'app/main/main.html'
+                url: '/tracks',
+                templateUrl: 'app/main/main.html',
+                controller: 'MainController as vm',
+                resolve: {
+                    tracks: function(soundCloudService) {
+                        return soundCloudService.getTracks();
+                    }
+                }
             })
         ;
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/tracks');
     }
 
 })();
