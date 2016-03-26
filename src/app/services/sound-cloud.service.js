@@ -9,13 +9,24 @@
                                CLIENT) {
         var service = {
             getTracks: getTracks,
+            getTrack: getTrack,
             getUser: getUser
         };
 
         return service;
 
         function getTracks() {
-            Restangular.one('tracks').get({ client_id: CLIENT.ID }).then(
+            return Restangular.one('tracks').get({ client_id: CLIENT.ID }).then(
+                function Success(data) {
+                    return data.plain();
+                }, function Failure(data) {
+                    return data.errors;
+                }
+            );
+        }
+
+        function getTrack(id) {
+            return Restangular.one('tracks').customGET(id, { client_id: CLIENT.ID }).then(
                 function Success(data) {
                     return data.plain();
                 }, function Failure(data) {
@@ -25,7 +36,7 @@
         }
 
         function getUser(userId) {
-            Restangular.one('users').customGET(userId, { client_id: CLIENT.ID }).then(
+            return Restangular.one('users').customGET(userId, { client_id: CLIENT.ID }).then(
                 function Success(data) {
                     return data.plain();
                 }, function Failure(data) {
