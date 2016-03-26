@@ -7,8 +7,7 @@
         'ngTouch',
         'restangular',
         'ui.router',
-        'toastr',
-        'soundCloudApi.tracks'
+        'toastr'
     ]);
 
 })();
