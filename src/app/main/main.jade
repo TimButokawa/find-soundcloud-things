@@ -1,1 +1,18 @@
-// TODO: tracks
+.container-fluid.header-container
+    header
+        h1
+            |   find soundcloud things
+hr.flush-top
+.container-fluid
+    .row
+        .col-sm-offset-6.col-sm-6.form-group
+            select.form-control
+                option Filter
+    .row
+        .col-sm-4(ng-repeat="track in vm.tracks")
+            .card(ng-style="{ 'background-image': 'url({{ track.artwork_url }})' }")
+                .card-title
+                    |   {{ track.title }}
+                .card-link-set
+                    span.card-link-icon
+                        span.glyphicon.glyphicon-circle-arrow-right

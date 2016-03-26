@@ -1,0 +1,37 @@
+.card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border: 1px solid @accent;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    color: @darkBgText;
+    background: @primary;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-link-set {
+    width: 100%;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.card-link-icon {
+    color: @accent;
+    transition: .1s ease;
+    &:hover { color: darken(@accent, 20); }
+    font-size: 20px;
+    padding: 0 5px;
+    cursor: pointer;
+}
