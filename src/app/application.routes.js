@@ -7,13 +7,36 @@
 
     function routerConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
-        .state('home', {
-                url: '/tracks',
+            .state('home', {
+                url: '',
                 templateUrl: 'app/main/main.html',
-                controller: 'MainController as vm',
+                abstract: true
+            })
+            .state('home.tracks', {
+                url: '/tracks',
+                views: {
+                    "main": {
+                        templateUrl: 'app/tracks/tracks.html',
+                        controller: 'TracksController as vm'
+                    }
+                },
                 resolve: {
                     tracks: function(soundCloudService) {
                         return soundCloudService.getTracks();
+                    }
+                }
+            })
+            .state('home.tracks.track', {
+                url: '/:trackId',
+                views: {
+                    "main@home": {
+                        templateUrl: 'app/tracks/track.html',
+                        controller: 'TrackController as vm'
+                    }
+                },
+                resolve: {
+                    track: function($stateParams, soundCloudService) {
+                        return soundCloudService.getTrack($stateParams.trackId);
                     }
                 }
             })
