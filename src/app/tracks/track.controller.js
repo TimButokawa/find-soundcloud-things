@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('soundCloudApi.tracks')
+        .module('soundCloudApi')
         .controller('TrackController', TrackController);
 
     function TrackController(track) {
