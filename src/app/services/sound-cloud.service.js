@@ -6,6 +6,7 @@
         .service('soundCloudService', soundCloudService);
 
     function soundCloudService(Restangular,
+                               tracksArtworkService,
                                CLIENT) {
         var service = {
             getTracks: getTracks,
