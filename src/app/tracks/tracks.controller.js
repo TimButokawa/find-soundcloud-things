@@ -5,14 +5,17 @@
         .module('soundCloudApi')
         .controller('TracksController', TracksController);
 
-    function TracksController($state, tracks) {
+    function TracksController($state,
+                              tracks,
+                              tracksArtworkService,
+                              IMAGE_CONFIG) {
         var vm = this;
         vm.goToTrack = goToTrack;
 
         activate();
 
         function activate() {
-            vm.tracks = tracks;
+            vm.tracks = tracksArtworkService.getArtwork(tracks, IMAGE_CONFIG.SIZE.LRG);
         }
 
         function goToTrack(id) {
