@@ -9,7 +9,8 @@
                 MD: 'crop',
                 SM: 't300x300',
                 BADGE: 'badge',
-                MINI: 'mini'
+                MINI: 'mini',
+                DEFAULT: 'large'
             },
             DEFAULT_IMG: '../assets/images/soundcloud_logo_black.png'
         });

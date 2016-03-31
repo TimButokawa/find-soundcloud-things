@@ -3,9 +3,10 @@
         select.form-control
             option Filter
 .row
-    .col-sm-4.room-bottom(ng-repeat="track in vm.tracks")
-        .card(ng-style="{ 'background-image': 'url({{ track.artwork_url }})' }")
-            .card-title
+    .col-sm-6.room-bottom(ng-repeat="track in vm.tracks")
+        .card-w-thumb
+            .card-thumb-image(ng-style="{ 'background-image': 'url({{ track.artwork_url }})' }")
+            span.card-thumb-content
                 |   {{ track.title }}
             .card-link-set
                 span.card-link-icon(ng-click="vm.goToTrack(track.id)")
