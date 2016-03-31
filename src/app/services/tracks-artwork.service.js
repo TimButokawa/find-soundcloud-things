@@ -7,19 +7,15 @@
 
     function tracksArtworkService(IMAGE_CONFIG) {
         var service = {
-            getArtwork: getArtwork
+            getArtworkForTrack: getArtworkForTrack
         };
         return service;
 
-        function getArtwork(tracks, size) {
-            _.forEach(tracks, function(track) {
-                if(track.artwork_url) {
-                    track.artwork_url = track.artwork_url.replace('large', size);
-                } else {
-                    track.artwork_url = _addDefaultImage(track.artwork_url);
-                }
-            });
-            return tracks;
+        function getArtworkForTrack(track, size) {
+            if(track) {
+                var artwork = track.artwork_url ? track.artwork_url.replace('large', size) : _addDefaultImage(track.artwork_url);
+                return artwork;
+            }
         }
 
         function _addDefaultImage(trackImage) {
