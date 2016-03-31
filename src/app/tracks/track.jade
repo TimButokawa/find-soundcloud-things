@@ -1,4 +1,11 @@
 .row
-    .col-sm-12
+    .col-sm-6.room-bottom
+        .card(ng-style="{ 'background-image': 'url({{ vm.track.artwork_url }})' }")
+            .card-title
+                |   {{ vm.track.title }}
+            .card-link-set
+                span.card-link-icon
+                    span.glyphicon.glyphicon-play
+    .col-sm-6
         pre
             |   {{ vm.track | json }}

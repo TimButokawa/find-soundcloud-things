@@ -15,7 +15,10 @@
         activate();
 
         function activate() {
-            vm.tracks = tracksArtworkService.getArtwork(tracks, IMAGE_CONFIG.SIZE.LRG);
+            vm.tracks = tracks;
+            _.forEach(vm.tracks, function(track) {
+                track.artwork_url = tracksArtworkService.getArtworkForTrack(track, IMAGE_CONFIG.SIZE.DEFAULT);
+            });
         }
 
         function goToTrack(id) {

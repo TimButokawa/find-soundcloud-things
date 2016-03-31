@@ -13,19 +13,16 @@
         });
 
         function _transformData(data, url) {
-            if(url.match(/tracks/)) {
+            if(url.match(/tracks/) && !data.length) {
                 data = _addClientIdToStreamUrl(data);
                 return data;
             }
             return data;
         }
 
-        function _addClientIdToStreamUrl(tracks) {
-            tracks = tracks.length ? tracks : [tracks];
-            _.forEach(tracks, function(track) {
-                track.stream_url = track.stream_url +  '?client_id=' + CLIENT.ID;
-            });
-            return tracks;
+        function _addClientIdToStreamUrl(track) {
+            track.stream_url = track.stream_url +  '?client_id=' + CLIENT.ID;
+            return track;
         }
     }
 })();

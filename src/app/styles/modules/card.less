@@ -1,10 +1,8 @@
 .card {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    .card-background-image;
     position: relative;
     border: 1px solid @accent;
-    height: 250px;
+    height: 400px;
 }
 
 .card-title {
@@ -14,9 +12,7 @@
     position: absolute;
     top: 0;
     padding: 5px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    .overflow-ellipsis;
 }
 
 .card-link-set {
@@ -34,4 +30,36 @@
     font-size: 20px;
     padding: 0 5px;
     cursor: pointer;
+}
+
+.card-content {
+    margin-top: 50px;
+}
+
+.card-w-thumb {
+    border: 1px solid @accent;
+    height: 102px;
+    position: relative;
+}
+
+.card-thumb-image {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    .card-background-image;
+    border-right: 1px solid @accent;
+}
+
+.card-thumb-content {
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    width: 65%;
+    .overflow-ellipsis;
+}
+
+.card-background-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
