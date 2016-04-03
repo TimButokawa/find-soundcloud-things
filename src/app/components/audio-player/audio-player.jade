@@ -1,0 +1,5 @@
+.card-link-set
+    span.pull-left.card-link-icon(ng-click="audioVm.muteOrUnmute()")
+        span.text-left.glyphicon(ng-class="audioVm.isNotMuted ? 'glyphicon-volume-up' : 'glyphicon-volume-off'")
+    span.card-link-icon(ng-click="audioVm.playOrPauseTrack()")
+        span.glyphicon(ng-class="audioVm.isNotPlaying ? 'glyphicon-pause' : 'glyphicon-play'")

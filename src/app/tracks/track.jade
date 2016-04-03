@@ -3,9 +3,7 @@
         .card(ng-style="{ 'background-image': 'url({{ vm.track.artwork_url }})' }")
             .card-title
                 |   {{ vm.track.title }}
-            .card-link-set
-                span.card-link-icon
-                    span.glyphicon.glyphicon-play
+            span(audio-player stream="vm.track.stream_url")
     .col-sm-6
         pre
             |   {{ vm.track | json }}
